@@ -13,7 +13,10 @@ class SoundboardView():
             ("^!wauw", self.wauw),
             ("^!mand", self.mand),
             ("^!rug", self.rug),
-            ("^!bier", self.bier)
+            ("^!bier", self.bier),
+            ("^!hiep", self.hiep),
+            ("^!waar", self.waar),
+            ("^!koekkoek", self.koekkoek)
 
         ]
 
@@ -31,3 +34,12 @@ class SoundboardView():
 
     def bier(self, message=None, match=None, to=None):
         self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/bier.mp3")
+
+    def hiep(self, message=None, match=None, to=None):
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/hiep.mp3")
+
+    def waar(self, message=None, match=None, to=None):
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/babylon.mp3")
+
+    def koekkoek(self, message=None, match=None, to=None):
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/babylon.mp3")
