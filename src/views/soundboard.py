@@ -17,7 +17,8 @@ class SoundboardView():
             ("^!hiep", self.hiep),
             ("^!waar", self.waar),
             ("^!koekkoek", self.koekkoek),
-            ("^!nooduitgang", self.nooduitgang)
+            ("^!nooduitgang", self.nooduitgang),
+            ("^!russia", self.russia)
 
         ]
 
@@ -47,3 +48,6 @@ class SoundboardView():
 
     def nooduitgang(self, message=None, match=None, to=None):
         self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/nooduitgang.mp3")
+
+    def russia(self, message=None, match=None, to=None):
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/russia.mp3")
