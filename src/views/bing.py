@@ -11,7 +11,7 @@ class BingViews():
     def __init__(self, interface_layer):
         self.image_sender = ImageSender(interface_layer)
         self.routes = [
-            ("/i(mage)?\s(?P<term>[^$]+)$", self.bing_image_search)
+            ("!i(mage)?\s(?P<term>[^$]+)$", self.bing_image_search)
         ]
 
     def bing_image_search(self, message, match):

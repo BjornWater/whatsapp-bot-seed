@@ -20,8 +20,8 @@ from views.hitler import HitlerView
 from views.soundboard import SoundboardView
 
 # Basic regex routes
-routes = [("^/ping", basic_views.ping),
-          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo)]
+routes = [("^!ping", basic_views.ping),
+          ("^!e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo)]
 
 
 class RouteLayer(YowInterfaceLayer):
