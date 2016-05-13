@@ -9,16 +9,12 @@ class SuperViews():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
             ("^/help", self.help),
-            ("^/about", self.about),
-            ("^/roll", self.roll),
-            ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
+            ("^/roll", self.roll)
         ]
 
-    def about(self, message=None, match=None, to=None):
-        self.url_print_sender.send_by_url(message.getFrom(), "https://github.com/joaoricardo000/whatsapp-bot-seed", ABOUT_TEXT)
-
+ 
     def roll(self, message=None, match=None, to=None):
-        return TextMessageProtocolEntity("[%d]" % random.randint(1, 6), to=message.getFrom())
+        return TextMessageProtocolEntity("[%d]" % random.randint(1, 100), to=message.getFrom())
 
     def even_or_odd(self, message=None, match=None, to=None):
         is_odd = len(match.group("evenOrOdd")) % 2
@@ -35,20 +31,19 @@ class SuperViews():
 HELP_TEXT = """ [HELP]
 - Commands
 /help - Show this message.
-/about - About
-/s(earch) - I'm lucky!
-/i(mage) - I'm lucky with image!
-/t(ts) - Text to speech.
+/i(mage) - zoek het plaatje
+/t(ts) - text naar spraak
 /(even)(odd) - Amazing game.
 /ping - Pong.
 /echo - Echo.
-/roll - Roll a dice.
+!heil - love for our supreme leader
+!sieg - HEIL
+!jaofnee - ja of nee
 
 Automatic:
     - Url (http://...) print screen.
     - Image (jpeg, gif, png) download.
     - Videos (mp4, webm) downloads.
-    - Youtube videos.
 """
 
 ABOUT_TEXT = """ [Whatsapp Bot Seed]

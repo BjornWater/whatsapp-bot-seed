@@ -16,7 +16,8 @@ from views.group_admin import GroupAdminViews
 from views.google import GoogleViews
 from views.bing import BingViews
 from views.quiz import QuizView
-
+from views.hitler import HitlerView
+from views.soundboard import SoundboardView
 
 # Basic regex routes
 routes = [("^/ping", basic_views.ping),
@@ -48,6 +49,10 @@ class RouteLayer(YowInterfaceLayer):
 
         # adds quiz views
         routes.extend(QuizView(self).routes)
+
+        routes.extend(HitlerView(self).routes)
+
+        routes.extend(SoundboardView(self).routes)
 
         # group admin views disabled by default.
         # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4

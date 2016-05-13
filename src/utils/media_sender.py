@@ -114,7 +114,7 @@ class MediaSender():
             logging.info("[Upload progress]%s => %s, %d%% \r" % (os.path.basename(filePath), jid, progress))
 
     def _on_error(self, jid, *args, **kwargs):
-        self.interface_layer.toLower(TextMessageProtocolEntity("{!}", to=jid))
+        self.interface_layer.toLower(TextMessageProtocolEntity("{Ich habe es nicht gewusst}", to=jid))
 
     def _get_file_ext(self, url):
         return self.file_extension_regex.findall(url)[0]
@@ -133,7 +133,7 @@ class VideoSender(MediaSender):
 class AudioSender(MediaSender):
     def __init__(self, interface_layer):
         MediaSender.__init__(self, interface_layer)
-        self.MEDIA_TYPE = RequestUploadIqProtocolEntity.MEDIA_TYPE_VIDEO
+        self.MEDIA_TYPE = RequestUploadIqProtocolEntity.MEDIA_TYPE_AUDIO
 
 
 class ImageSender(MediaSender):
@@ -185,7 +185,7 @@ class EspeakTtsSender(AudioSender):
         Uses espeak to text to speach
     """
 
-    def send(self, jid, text, lang='en'):
+    def send(self, jid, text, lang='de+m7'):
         text = text.replace("'", '"')
         try:
             file_path = self.tts_record(text, lang)
@@ -194,12 +194,22 @@ class EspeakTtsSender(AudioSender):
             logging.exception(e)
             self._on_error(jid)
 
-    def tts_record(self, text, lang='en'):
+    def tts_record(self, text, lang='de+m7'):
         file_path = self._build_file_path(text)
-        cmd = "espeak -v%s -w %s '%s'" % (lang, file_path, text)
+        cmd = "espeak -s 140 -v%s -w %s '%s'" % (lang, file_path, text)
         subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).wait()
         return file_path
 
     def _build_file_path(self, text):
         id = hashlib.md5(text).hexdigest()
         return ''.join([self.storage_path, id, ".wav"])
+		
+class AudioFileSender(AudioSender):
+
+    def send(self, jid, text):
+		text = text.replace("'", '"')
+		try:
+			self.send_by_path(jid, text)
+		except Exception as e:
+			logging.exception(e)
+			self._on_error(jid)

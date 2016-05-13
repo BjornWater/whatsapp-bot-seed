@@ -1,0 +1,61 @@
+_server.py_	[INFO][2016-05-04 21:48:04,160] ##################################################
+_server.py_	[INFO][2016-05-04 21:48:04,161] 	Server started. Phone number: 31621640081
+_server.py_	[INFO][2016-05-04 21:48:04,161] ##################################################
+_layer.py_	[INFO][2016-05-04 21:48:04,752] Axolotl layer is generating keys
+Storing prekeys 1% Storing prekeys 2% Storing prekeys 3% Storing prekeys 4% Storing prekeys 5% Storing prekeys 6% Storing prekeys 7% Storing prekeys 8% Storing prekeys 9% Storing prekeys 10% Storing prekeys 11% Storing prekeys 12% Storing prekeys 13% Storing prekeys 14% Storing prekeys 15% Storing prekeys 16% Storing prekeys 17% Storing prekeys 18% Storing prekeys 19% Storing prekeys 20% Storing prekeys 21% Storing prekeys 22% Storing prekeys 23% Storing prekeys 24% Storing prekeys 25% Storing prekeys 26% Storing prekeys 27% Storing prekeys 28% Storing prekeys 29% Storing prekeys 30% Storing prekeys 31% Storing prekeys 32% Storing prekeys 33% Storing prekeys 34% Storing prekeys 35% Storing prekeys 36% Storing prekeys 37% Storing prekeys 38% Storing prekeys 39% Storing prekeys 40% Storing prekeys 41% Storing prekeys 42% Storing prekeys 43% Storing prekeys 44% Storing prekeys 45% Storing prekeys 46% Storing prekeys 47% Storing prekeys 48% Storing prekeys 49% Storing prekeys 50% Storing prekeys 51% Storing prekeys 52% Storing prekeys 53% Storing prekeys 54% Storing prekeys 55% Storing prekeys 56% Storing prekeys 57% Storing prekeys 58% Storing prekeys 59% Storing prekeys 60% Storing prekeys 61% Storing prekeys 62% Storing prekeys 63% Storing prekeys 64% Storing prekeys 65% Storing prekeys 66% Storing prekeys 67% Storing prekeys 68% Storing prekeys 69% Storing prekeys 70% Storing prekeys 71% Storing prekeys 72% Storing prekeys 73% Storing prekeys 74% Storing prekeys 75% Storing prekeys 76% Storing prekeys 77% Storing prekeys 78% Storing prekeys 79% Storing prekeys 80% Storing prekeys 81% Storing prekeys 82% Storing prekeys 83% Storing prekeys 84% Storing prekeys 85% Storing prekeys 86% Storing prekeys 87% Storing prekeys 88% Storing prekeys 89% Storing prekeys 90% Storing prekeys 91% Storing prekeys 92% Storing prekeys 93% Storing prekeys 94% Storing prekeys 95% Storing prekeys 96% Storing prekeys 97% Storing prekeys 98% Storing prekeys 99% Storing prekeys 100% _server.py_	[ERROR][2016-05-04 21:48:09,477] Unexpected Exception: msg
+Traceback (most recent call last):
+  File "src/server.py", line 38, in start
+    self.stack.loop(timeout=0.5, discrete=0.5)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/stacks/yowstack.py", line 187, in loop
+    asyncore.loop(*args, **kwargs)
+  File "/usr/lib/python2.7/asyncore.py", line 216, in loop
+    poll_fun(timeout, map)
+  File "/usr/lib/python2.7/asyncore.py", line 201, in poll2
+    readwrite(obj, flags)
+  File "/usr/lib/python2.7/asyncore.py", line 123, in readwrite
+    obj.handle_error()
+  File "/usr/lib/python2.7/asyncore.py", line 108, in readwrite
+    obj.handle_read_event()
+  File "/usr/lib/python2.7/asyncore.py", line 449, in handle_read_event
+    self.handle_read()
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/network/layer.py", line 88, in handle_read
+    self.receive(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/network/layer.py", line 96, in receive
+    self.toUpper(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/__init__.py", line 75, in toUpper
+    self.__upper.receive(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/stanzaregulator/layer.py", line 29, in receive
+    self.processReceived()
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/stanzaregulator/layer.py", line 49, in processReceived
+    self.toUpper(oneMessageData)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/__init__.py", line 75, in toUpper
+    self.__upper.receive(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/auth/layer_crypt.py", line 65, in receive
+    self.toUpper(payload)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/__init__.py", line 75, in toUpper
+    self.__upper.receive(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/coder/layer.py", line 35, in receive
+    self.toUpper(node)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/__init__.py", line 75, in toUpper
+    self.__upper.receive(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/logger/layer.py", line 14, in receive
+    self.toUpper(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/__init__.py", line 75, in toUpper
+    self.__upper.receive(data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/axolotl/layer.py", line 124, in receive
+    self.onMessage(protocolTreeNode)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/axolotl/layer.py", line 146, in onMessage
+    self.handleEncMessage(protocolTreeNode)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/axolotl/layer.py", line 231, in handleEncMessage
+    self.handleWhisperMessage(node)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/axolotl/layer.py", line 277, in handleWhisperMessage
+    encMessageProtocolEntity = EncryptedMessageProtocolEntity.fromProtocolTreeNode(node)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/axolotl/protocolentities/message_encrypted.py", line 53, in fromProtocolTreeNode
+    encNode.data.encode('latin-1') if sys.version_info >= (3,0) else encNode.data)
+  File "/home/bjorn/.local/lib/python2.7/site-packages/yowsup/layers/axolotl/protocolentities/message_encrypted.py", line 24, in setEncProps
+    assert encType in "pkmsg", "msg"
+AssertionError: msg
+_server.py_	[INFO][2016-05-04 21:48:09,542] Restarting..
+_server.py_	[INFO][2016-05-04 21:48:09,554] ##################################################
+_server.py_	[INFO][2016-05-04 21:48:09,554] 	Server started. Phone number: 31621640081
+_server.py_	[INFO][2016-05-04 21:48:09,554] ##################################################

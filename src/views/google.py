@@ -15,11 +15,7 @@ class GoogleViews():
         self.video_sender = VideoSender(interface_layer)
         self.yt_sender = YoutubeSender(interface_layer)
         self.url_print_sender = UrlPrintSender(interface_layer)
-        self.routes = [
-            (".*https?:\/\/(?:www\.|m\.)?youtu(?:be.com\/watch\?v=|\.be/)(?P<video_id>[\w-]+)(&\S*)?$",
-             self.send_yt_video),
-            ("/s(earch)?\s(?P<term>[^$]+)$", self.google_search),
-        ]
+        self.routes = []
 
     def send_yt_video(self, message, match):
         self.yt_sender.send_by_url(jid=message.getFrom(), file_url=match.group("video_id"))
