@@ -9,13 +9,16 @@ class SuperViews():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
           #  ("^/help", self.help),
-            ("^!roll", self.roll)
+            ("^!roll", self.roll),
+            ("^!votekick", self.kick)
         ]
 
  
     def roll(self, message=None, match=None, to=None):
         return TextMessageProtocolEntity("[%d]" % random.randint(1, 100), to=message.getFrom())
 
+    def kick(self, message=None, match=None, to=None):
+        return TextMessageProtocolEntity("!agree AUFRAUSEN!!", to=message.getFrom())
   #  def even_or_odd(self, message=None, match=None, to=None):
    #     is_odd = len(match.group("evenOrOdd")) % 2
    ##     num = random.randint(1, 10)
