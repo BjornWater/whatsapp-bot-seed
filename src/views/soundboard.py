@@ -9,10 +9,10 @@ class SoundboardView():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.audio_file_sender = AudioFileSender(self.interface_layer)
         self.routes = [
-            ("^!gratis", self.gratis),
-            ("^!wauw", self.wauw),
-            ("^!mand", self.mand),
-            ("^!rug", self.rug),
+            ("^.*gratis.*$", self.gratis),
+            ("^.*wauw.*$", self.wauw),
+            ("^.*mand.*$", self.mand),
+            ("^.*rug.*$", self.rug),
             ("^!bier", self.bier),
             ("^!hiep", self.hiep),
             ("^!waar", self.waar),
