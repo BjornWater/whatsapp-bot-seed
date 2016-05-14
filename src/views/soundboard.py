@@ -18,8 +18,8 @@ class SoundboardView():
             ("^!waar", self.waar),
             ("^!koekkoek", self.koekkoek),
             ("^!nooduitgang", self.nooduitgang),
-            ("^!russia", self.russia)
-
+            ("^!russia", self.russia),
+            ("^!efteling", self.efteling)
         ]
 
     def gratis(self, message=None, match=None, to=None):
@@ -51,3 +51,6 @@ class SoundboardView():
 
     def russia(self, message=None, match=None, to=None):
         self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/russia.mp3")
+
+    def efteling(self, message=None, match=None, to=None):
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/efteling.mp3")
