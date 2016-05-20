@@ -6,8 +6,11 @@
 import threading
 import re
 import logging
-
+import time
+import calendar
+import sched
 from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
+
 
 from views import basic_views
 from views.media import MediaViews
@@ -19,10 +22,14 @@ from views.quiz import QuizView
 from views.hitler import HitlerView
 from views.soundboard import SoundboardView
 
+
+
 # Basic regex routes
 routes = [("^!ping", basic_views.ping),
           ("^!e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo)]
 
+
+starttime = 0
 
 class RouteLayer(YowInterfaceLayer):
     def __init__(self):
@@ -34,6 +41,8 @@ class RouteLayer(YowInterfaceLayer):
             so the callback can access the 'self.toLower' method
         """
         super(RouteLayer, self).__init__()
+        global starttime
+        starttime = calendar.timegm(time.gmtime())
 
         # Google views to handle tts, search and youtube
         routes.extend(GoogleViews(self).routes)
@@ -59,16 +68,33 @@ class RouteLayer(YowInterfaceLayer):
         # enable on your own risk!
         # routes.extend(GroupAdminViews(self).routes)
 
+       # scheduler = sched.scheduler(time.time, time.sleep)
+        #scheduler.enter(5, 1, send_event)
+
         self.views = [(re.compile(pattern), callback) for pattern, callback in routes]
+       # scheduler.run()
 
     def route(self, message):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
+        
+        if message.timestamp < starttime:
+            return
         for route, callback in self.views:
             match = route.match(text)
             if match:  # in case of regex match, the callback is called, passing the message and the match object
                 threading.Thread(target=self.handle_callback, args=(callback, message, match)).start()
                 break
+
+    def send_event(self):
+        try:
+            data = TextMessageProtocolEntity("negers", to="31620753977-1462222161@g.us")
+            self.toLower(data)
+            scheduler.enter(5, 1, send_event)
+        except Exception as e:
+            logging.exception("Error sends negers message:")
+
+
 
     def handle_callback(self, callback, message, match):
         try:
