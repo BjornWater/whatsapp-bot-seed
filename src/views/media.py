@@ -21,7 +21,6 @@ class MediaViews():
         self.routes = [
             ("https?:\/\/(?:[\w\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)($|\?[^\s]+$)", self.send_image),
             ("https?:\/\/(?:[\w\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:mp4|webm)($|\?[^\s]+$)", self.send_video),
-            ("https?:\/\/[^$]+$", self.send_url_print),
             ("^!t(ts)?\s(?P<tts_text>[^$]+)$", self.send_tts)
         ]
 

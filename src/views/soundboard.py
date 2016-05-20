@@ -11,7 +11,7 @@ class SoundboardView():
         self.routes = [
             ("^.*gratis.*$", self.gratis),
             ("^.*wauw.*$", self.wauw),
-            ("^.*mand.*$", self.mand),
+            ("^.* mand.*$", self.mand),
             ("^.*rug.*$", self.rug),
             ("^!bier", self.bier),
             ("^!hiep", self.hiep),
@@ -19,38 +19,42 @@ class SoundboardView():
             ("^!koekkoek", self.koekkoek),
             ("^!nooduitgang", self.nooduitgang),
             ("^!russia", self.russia),
-            ("^!efteling", self.efteling)
+            ("^!efteling", self.efteling),
+            ("^.*octo.*$", self.octo)
         ]
 
     def gratis(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/gratis.wav")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/gratis.wav")
 
     def wauw(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/wauw.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/wauw.mp3")
 
     def mand(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/mand.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/mand.mp3")
 
     def rug(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/rug.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/rug.mp3")
 
     def bier(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/bier.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/bier.mp3")
 
     def hiep(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/hiep.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/hiep.mp3")
 
     def waar(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/babylon.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/babylon.mp3")
 
     def koekkoek(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/koekkoek.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/koekkoek.mp3")
 
     def nooduitgang(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/nooduitgang.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/nooduitgang.mp3")
 
     def russia(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/russia.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/russia.mp3")
 
     def efteling(self, message=None, match=None, to=None):
-        self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/efteling.mp3")
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/efteling.mp3")
+
+    def octo(self, message=None, match=None, to=None):
+        self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/octo.mp3")

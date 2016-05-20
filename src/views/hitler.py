@@ -11,7 +11,7 @@ class HitlerView():
         self.routes = [
             ("^!heil", self.heil),
             ("^!sieg", self.sieg),
-            ("^!jaofnee", self.jaofnee)
+            ("^!jawohl", self.jaofnee)
         ]
 
     def heil(self, message=None, match=None, to=None):
@@ -21,6 +21,6 @@ class HitlerView():
     def jaofnee(self, message=None, match=None, to=None):
         num = random.randint(1, 10)
         if (num % 2):
-            self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/jawohl.mp3")
+            self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/jawohl.mp3")
         else:
-            self.audio_file_sender.send(jid=message.getFrom(), text="/home/bjorn/whatsapp-bot-seed/src/views/sound/nein.wav")
+            self.audio_file_sender.send(jid=message.getFrom(), text="/home/whatsapp/src/views/sound/nein.wav")

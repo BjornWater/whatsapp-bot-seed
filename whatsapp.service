@@ -1,0 +1,9 @@
+[Unit]
+Description=runtime for 
+
+[Service]
+ExecStart=/usr/bin/python /home/whatsapp/src/server.py
+ExecStop=/bin/systemctl kill whatsapp.service
+
+[Install]
+WantedBy=multi-user.target
